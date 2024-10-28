@@ -8,7 +8,7 @@ class Portfolio:
         self.init_time = get_date()
         self.current_cash = SEED_CASH
         self.max_cash = -1
-        self.holdings = {}
+        self.holdings = {} # TODO This is up next
         self.check_max()
 
     def check_max(self):
