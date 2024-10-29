@@ -8,7 +8,7 @@ def main():
     # Define the commands to run
     commands = [
         "git add .",
-        "git reset venv",  # Exclude the venv directory
+        # "git reset venv",  # Exclude the venv directory
         f'git commit -m "{commit_message}"',
         "git push"
     ]
