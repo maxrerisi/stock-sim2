@@ -1,3 +1,4 @@
+import json
 from SEED_FILE import SEED_CASH
 from get_date import get_date
 
@@ -9,6 +10,7 @@ class Portfolio:
         self.current_cash = SEED_CASH
         self.max_cash = -1
         self.holdings = {} # TODO This is up next
+        self.history = {} # TODO do this
         self.check_max()
 
     def check_max(self):
@@ -17,4 +19,18 @@ class Portfolio:
 
     def to_json(self):
         self.check_max()
-        return {}
+        portfolio_dict = {
+            "cash_in": self.cash_in,
+            "init_time": self.init_time,
+            "current_cash": self.current_cash,
+            "max_cash": self.max_cash,
+            "holdings": self.holdings,
+            "history": self.history
+        }
+        return json.dumps(portfolio_dict)
+    
+    def add_numbers(self):
+        pass
+
+    # multiply two inputs a and b
+    def multiply(self, a, b):
