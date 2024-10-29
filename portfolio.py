@@ -14,11 +14,14 @@ class Portfolio:
         self.check_max()
 
     def check_max(self):
+        # Update max_cash if current_cash exceeds the previously recorded max_cash
         if self.current_cash > self.max_cash["cash"]:
             self.max_cash = {"cash": self.current_cash, "date": get_date()}
 
     def to_json(self):
+        # Ensure max_cash is up-to-date
         self.check_max()
+        # Create a dictionary with the current state of the portfolio
         portfolio_dict = {
             "cash_in": self.cash_in,
             "init_time": self.init_time,
@@ -27,10 +30,5 @@ class Portfolio:
             "holdings": self.holdings,
             "history": self.history
         }
+        # Return the dictionary as a JSON string
         return json.dumps(portfolio_dict)
-    
-    def add_numbers(self):
-        pass
-
-    # multiply two inputs a and b
-    def multiply(self, a, b):
